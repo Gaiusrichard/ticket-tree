@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import './util/app_styles.dart';
 // local import
-import './widgets/bottom_bar_widget.dart';
+import 'screens/bottom_bar_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,8 +9,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Ticket tree',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primaryColor: primary),
       home: const BottomBarWidget(),
     );
   }

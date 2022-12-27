@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
+import 'package:ticket_tree/screens/home_screen.dart';
 
 class BottomBarWidget extends StatefulWidget {
   const BottomBarWidget({super.key});
@@ -10,7 +11,7 @@ class BottomBarWidget extends StatefulWidget {
 
 class _BottomBarWigetState extends State<BottomBarWidget> {
   static final List<Widget> _widgetScreens = <Widget>[
-    const Text('Home'),
+    HomeScreen(),
     const Text('Search'),
     const Text('Ticket'),
     const Text('Profile'),
@@ -36,6 +37,7 @@ class _BottomBarWigetState extends State<BottomBarWidget> {
           showUnselectedLabels: false,
           selectedItemColor: Colors.blueGrey,
           unselectedItemColor: const Color(0xFF526480),
+          type: BottomNavigationBarType.fixed,
           elevation: 10,
           items: const [
             BottomNavigationBarItem(
