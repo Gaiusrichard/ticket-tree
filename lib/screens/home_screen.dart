@@ -18,7 +18,6 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 45,
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -48,14 +47,14 @@ class HomeScreen extends StatelessWidget {
                   // logo
                 ],
               ),
-
-              Container(
-                child: Row(
-                  children: [
-
-                  ]
+              const TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  hintText: 'Search',
+                  filled: true,
+                  fillColor: Colors.white,
                 ),
-              )
+              ),
             ]),
           )
         ],
