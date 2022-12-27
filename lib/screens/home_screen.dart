@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import ''
+import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:ticket_tree/util/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -47,14 +47,43 @@ class HomeScreen extends StatelessWidget {
                   // logo
                 ],
               ),
-              const TextField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  hintText: 'Search',
-                  filled: true,
-                  fillColor: Colors.white,
-                ),
+              const SizedBox(
+                height: 25,
               ),
+              TextField(
+                decoration: InputDecoration(
+                    prefixIcon:
+                        const Icon(FluentSystemIcons.ic_fluent_search_regular),
+                    filled: true,
+                    fillColor: Colors.white,
+                    hintText: 'Search',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 10)),
+              ),
+              const SizedBox(
+                height: 49,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Upcoming flights',
+                    style: Styles.headlineText2,
+                  ),
+                  InkWell(
+                      onTap: () {
+                        print('line 80, home screen');
+                      },
+                      child: Text(
+                        'View all',
+                        style: Styles.textStyle
+                            .copyWith(color: Styles.primaryColor),
+                      ))
+                ],
+              )
             ]),
           )
         ],
