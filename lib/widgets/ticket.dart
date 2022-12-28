@@ -35,7 +35,34 @@ class Ticket extends StatelessWidget {
                         ),
                         const Spacer(),
                         CircleStyle(),
-                        const Spacer(),
+                        Expanded(
+                            child: Stack(children: [
+                          SizedBox(
+                            height: 25,
+                            child: LayoutBuilder(builder: (BuildContext context,
+                                BoxConstraints constraints) {
+                              return Flex(
+                                direction: Axis.horizontal,
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: List.generate(
+                                    (constraints.constrainWidth() / 6).floor(),
+                                    (index) => const SizedBox(
+                                        width: 3,
+                                        height: 1,
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                              color: Colors.white),
+                                        ))),
+                              );
+                            }),
+                          ),
+                          Transform.rotate(
+                              angle: 1.5,
+                              child: const Icon(Icons.local_airport_rounded,
+                                  color: Colors.white)),
+                        ])),
                         CircleStyle(),
                         const Spacer(),
                         Text(
@@ -58,11 +85,10 @@ class CircleStyle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:  const EdgeInsets.all(3.0),
+      padding: const EdgeInsets.all(3.0),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(width: 2.5, color: Colors.white)
-      ),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(width: 2.5, color: Colors.white)),
     );
   }
 }

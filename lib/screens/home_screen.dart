@@ -90,7 +90,7 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          Ticket(),
+          const Ticket(),
         ],
       ),
     );
