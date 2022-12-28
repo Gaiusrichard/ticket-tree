@@ -120,6 +120,12 @@ class Ticket extends StatelessWidget {
                     ]
                   ),
                 ]),
+              ),
+
+              Expanded(
+                child: SizedBox(
+                  child: 
+                )
               )
             ],
           )),
