@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
+import 'package:flutter/material.dart';
 import 'package:ticket_tree/util/app_styles.dart';
+import '../widgets/ticket.dart';
 
 class HomeScreen extends StatelessWidget {
   // default
@@ -85,7 +86,11 @@ class HomeScreen extends StatelessWidget {
                 ],
               )
             ]),
-          )
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Ticket(),
         ],
       ),
     );
