@@ -58,22 +58,68 @@ class Ticket extends StatelessWidget {
                               );
                             }),
                           ),
-                          Transform.rotate(
-                              angle: 1.5,
-                              child: const Icon(Icons.local_airport_rounded,
-                                  color: Colors.white)),
+                          Center(
+                            child: Transform.rotate(
+                                angle: 1.5,
+                                child: const Icon(Icons.local_airport_rounded,
+                                    color: Colors.white)),
+                          ),
                         ])),
                         CircleStyle(),
                         const Spacer(),
                         Text(
-                          'London',
+                          'LDN',
                           style: Styles.headlineText3
                               .copyWith(color: Colors.white),
                         ),
                       ],
                     ),
+                    const SizedBox(
+                      height: 3,
+                    ),
+                    Row(children: [
+                      Text(
+                        'New-York',
+                        style:
+                            Styles.headlineText4.copyWith(color: Colors.white),
+                      ),
+                      const Spacer(),
+                      Text(
+                        '8H 30M',
+                        style:
+                            Styles.headlineText4.copyWith(color: Colors.white),
+                      ),
+                      const Spacer(),
+                      Text(
+                        'London',
+                        style:
+                            Styles.headlineText4.copyWith(color: Colors.white),
+                      ),
+                    ])
                   ],
                 ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Styles.orangeColor,
+                    borderRadius: const BorderRadius.only(
+                        // bottomLeft: Radius.circular(21.0),
+                        // bottomRight: Radius.circular(21.0)
+                        )),
+                child: Column(children: [
+                  Row(
+                    children: [
+                      Container(
+                        height: 22,
+                        width: 12,
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(topRight: Radius.circular(100), bottomRight: Radius.circular(100))
+                        )
+                      )
+                    ]
+                  ),
+                ]),
               )
             ],
           )),
