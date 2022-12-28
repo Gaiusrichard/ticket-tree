@@ -107,26 +107,48 @@ class Ticket extends StatelessWidget {
                         // bottomRight: Radius.circular(21.0)
                         )),
                 child: Column(children: [
-                  Row(
-                    children: [
-                      Container(
-                        height: 22,
-                        width: 12,
+                  Row(children: [
+                    Container(
+                        height: 20,
+                        width: 10,
                         decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(topRight: Radius.circular(100), bottomRight: Radius.circular(100))
-                        )
-                      )
-                    ]
-                  ),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(100),
+                                bottomRight: Radius.circular(100)))),
+                    Expanded(
+                        child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: LayoutBuilder(builder:
+                          (BuildContext context, BoxConstraints constraints) {
+                        return Flex(
+                            direction: Axis.horizontal,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.max,
+                            children: List.generate(
+                                (constraints.constrainWidth() / 15).floor(),
+                                (index) {
+                              return const SizedBox(
+                                  width: 3,
+                                  height: 1,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.white),
+                                  ));
+                            }));
+                      }),
+                    )),
+                    Container(
+                        height: 20,
+                        width: 10,
+                        decoration: const BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(100),
+                                bottomLeft: Radius.circular(100)))),
+                  ]),
                 ]),
               ),
-
-              Expanded(
-                child: SizedBox(
-                  child: 
-                )
-              )
             ],
           )),
     );
