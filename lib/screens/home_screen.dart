@@ -2,6 +2,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_tree/util/app_styles.dart';
 import '../widgets/ticket.dart';
+import '../widgets/hotels_view_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   // default
@@ -71,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Upcoming flights',
+                    'Upcoming Flights',
                     style: Styles.headlineText2,
                   ),
                   InkWell(
@@ -90,7 +91,54 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          const Ticket(),
+          SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.only(right: 20),
+              child: Row(
+                children: const [
+                  Ticket(),
+                  Ticket(),
+                ],
+              )),
+          const SizedBox(
+            height: 20,
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: _sideSpacing),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Hotels',
+                  style: Styles.headlineText2,
+                ),
+                InkWell(
+                    onTap: () {
+                      print('line 116, home screen');
+                    },
+                    child: Text(
+                      'View all',
+                      style:
+                          Styles.textStyle.copyWith(color: Styles.primaryColor),
+                    ))
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SingleChildScrollView(
+            padding: EdgeInsets.only(right: _sideSpacing),
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                HotelsViewWidget(hotelImageLink: 'assets/images/one.png'),
+                HotelsViewWidget(hotelImageLink: 'assets/images/one.png'),
+                HotelsViewWidget(hotelImageLink: 'assets/images/one.png'),
+                HotelsViewWidget(hotelImageLink: 'assets/images/one.png')
+              ],
+            ),
+          )
         ],
       ),
     );
