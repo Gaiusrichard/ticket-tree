@@ -4,17 +4,19 @@ import 'package:ticket_tree/util/app_styles.dart';
 import '../util/app_layout.dart';
 
 class Ticket extends StatelessWidget {
-  const Ticket({super.key});
+  final Map<String, dynamic> ticket;
+
+  const Ticket({super.key, required this.ticket});
 
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
 
     return SizedBox(
-      width: size.width*0.85,
-      height: 200,
+      width: size.width * 0.85,
+      height: AppLayout.resScreenHeight(200),
       child: Container(
-          margin: const EdgeInsets.only(left: 16),
+          margin: EdgeInsets.only(left: AppLayout.resScreenWidth(16)),
           child: Column(
             children: [
               Container(
@@ -29,7 +31,7 @@ class Ticket extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'NYC',
+                          ticket['from']['code'],
                           style: Styles.headlineText3
                               .copyWith(color: Colors.white),
                         ),
@@ -38,7 +40,7 @@ class Ticket extends StatelessWidget {
                         Expanded(
                             child: Stack(children: [
                           SizedBox(
-                            height: 25,
+                            height: AppLayout.resScreenWidth(25),
                             child: LayoutBuilder(builder: (BuildContext context,
                                 BoxConstraints constraints) {
                               return Flex(
@@ -68,30 +70,30 @@ class Ticket extends StatelessWidget {
                         CircleStyle(),
                         const Spacer(),
                         Text(
-                          'LDN',
+                          ticket['to']['code'],
                           style: Styles.headlineText3
                               .copyWith(color: Colors.white),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 3,
+                    SizedBox(
+                      height: AppLayout.resScreenHeight(3),
                     ),
                     Row(children: [
                       Text(
-                        'New-York',
+                        ticket['from']['name'],
                         style:
                             Styles.headlineText4.copyWith(color: Colors.white),
                       ),
                       const Spacer(),
                       Text(
-                        '8H 30M',
+                        ticket['flying_time'],
                         style:
                             Styles.headlineText4.copyWith(color: Colors.white),
                       ),
                       const Spacer(),
                       Text(
-                        'London',
+                        ticket['to']['name'],
                         style:
                             Styles.headlineText4.copyWith(color: Colors.white),
                       ),
@@ -106,14 +108,13 @@ class Ticket extends StatelessWidget {
                 child: Column(children: [
                   Row(children: [
                     Container(
-                        height: 20,
-                        width: 10,
+                        height: AppLayout.resScreenHeight(20),
+                        width: AppLayout.resScreenWidth(10),
                         decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(100),
-                                bottomRight: Radius.circular(100))
-                        )),
+                                bottomRight: Radius.circular(100)))),
                     Expanded(
                         child: Padding(
                       padding: const EdgeInsets.all(12.0),
@@ -143,57 +144,61 @@ class Ticket extends StatelessWidget {
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(100),
-                                bottomLeft: Radius.circular(100))
-                                )),
+                                bottomLeft: Radius.circular(100)))),
                   ]),
                 ]),
               ),
               Container(
-                padding: const EdgeInsets.only(left: 16, top: 10, right: 16, bottom: 16),
+                padding: const EdgeInsets.only(
+                    left: 16, top: 10, right: 16, bottom: 16),
                 decoration: BoxDecoration(
                     color: Styles.orangeColor,
-                    borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(21.0),
-                        bottomRight: Radius.circular(21.0)
-                        )),
-
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(AppLayout.resScreenHeight(21.0)),
+                        bottomRight: Radius.circular(AppLayout.resScreenHeight(21.0)))),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('1 MAY', style: Styles.headlineText3.copyWith(color: Colors.white)),
+                            Text(ticket['date'],
+                                style: Styles.headlineText3
+                                    .copyWith(color: Colors.white)),
                             const SizedBox(
                               height: 4,
                             ),
-                            Text('Date', style: Styles.headlineText4.copyWith(color: Colors.white)),
-                            ]
-                        ),
-
-                        Column(
+                            Text('Date',
+                                style: Styles.headlineText4
+                                    .copyWith(color: Colors.white)),
+                          ]),
+                      Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text('08:00 AM', style: Styles.headlineText3.copyWith(color: Colors.white)),
+                            Text(ticket['departure_time'],
+                                style: Styles.headlineText3
+                                    .copyWith(color: Colors.white)),
                             const SizedBox(
                               height: 4,
                             ),
-                            Text('Departure time', style: Styles.headlineText4.copyWith(color: Colors.white)),
-                            ]
-                        ),
-
-                        Column(
+                            Text('Departure time',
+                                style: Styles.headlineText4
+                                    .copyWith(color: Colors.white)),
+                          ]),
+                      Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Text('23', style: Styles.headlineText3.copyWith(color: Colors.white)),
+                            Text(ticket['number'].toString(),
+                                style: Styles.headlineText3
+                                    .copyWith(color: Colors.white)),
                             const SizedBox(
                               height: 4,
                             ),
-                            Text('Number', style: Styles.headlineText4.copyWith(color: Colors.white)),
-                            ]
-                        )
-                      ]
-                    ),
+                            Text('Number',
+                                style: Styles.headlineText4
+                                    .copyWith(color: Colors.white)),
+                          ])
+                    ]),
               )
             ],
           )),

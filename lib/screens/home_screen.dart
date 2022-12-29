@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ticket_tree/util/app_styles.dart';
 import '../widgets/ticket.dart';
 import '../widgets/hotels_view_widget.dart';
+import '../model/hotel_list.dart';
 
 class HomeScreen extends StatelessWidget {
   // default
@@ -95,10 +96,9 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.only(right: 20),
               child: Row(
-                children: const [
-                  Ticket(),
-                  Ticket(),
-                ],
+                children: ticketList.map((ticket) {
+                  return Ticket(ticket: ticket);
+                }).toList(),
               )),
           const SizedBox(
             height: 20,
@@ -131,13 +131,15 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.only(right: _sideSpacing),
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
-                HotelsViewWidget(hotelImageLink: 'assets/images/one.png'),
-                HotelsViewWidget(hotelImageLink: 'assets/images/one.png'),
-                HotelsViewWidget(hotelImageLink: 'assets/images/one.png'),
-                HotelsViewWidget(hotelImageLink: 'assets/images/one.png')
-              ],
-            ),
+                children: hotelList.map(
+              (singleHotel) {
+                return HotelsViewWidget(
+                    hotelImageLink: singleHotel['image'],
+                    hotelName: singleHotel['place'],
+                    destination: singleHotel['destination'],
+                    price: singleHotel['price']);
+              },
+            ).toList()),
           )
         ],
       ),
