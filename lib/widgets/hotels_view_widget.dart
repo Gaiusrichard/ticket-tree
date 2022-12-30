@@ -42,7 +42,7 @@ class HotelsViewWidget extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
-                      fit: BoxFit.cover, image: AssetImage(hotelImageLink!)))),
+                      fit: BoxFit.cover, image: AssetImage(hotelImageLink)))),
           const SizedBox(
             height: 10,
           ),
