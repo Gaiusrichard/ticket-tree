@@ -1,7 +1,7 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_tree/util/app_styles.dart';
-import '../widgets/ticket.dart';
+import '../widgets/ticket.widget.dart';
 import '../widgets/hotels_view_widget.dart';
 import '../model/hotel_list.dart';
 

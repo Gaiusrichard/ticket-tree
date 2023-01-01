@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:ticket_tree/screens/home_screen.dart';
+import 'package:ticket_tree/screens/profile_screen.dart';
 import 'package:ticket_tree/screens/search_screen.dart';
+import 'package:ticket_tree/screens/ticket_view.screen.dart';
 import './practice_screen.dart';
 
 class BottomBarWidget extends StatefulWidget {
@@ -15,8 +17,8 @@ class _BottomBarWigetState extends State<BottomBarWidget> {
   static final List<Widget> _widgetScreens = <Widget>[
     HomeScreen(),
     SearchScreen(),
-    const Text('Ticket'),
-    PracticeScreen()
+    ViewTicketScreen(),
+    Profile()
   ];
 
   int _indexOfWidgetScreens = 0;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
+import 'package:ticket_tree/widgets/switch_button.dart';
 import 'package:ticket_tree/widgets/upcoming_flights_widgets.dart';
 // local
 import '../util/app_styles.dart';
@@ -25,49 +26,7 @@ class SearchScreen extends StatelessWidget {
               style: Styles.headlineText1.copyWith(fontSize: 35),
             ),
             Gap(AppLayout.resScreenHeight(20)),
-            Container(
-              padding: const EdgeInsets.all(2),
-              decoration: BoxDecoration(
-                  borderRadius:
-                      BorderRadius.circular(AppLayout.resScreenHeight(10)),
-                  color: const Color(0xFFF4F6fd)),
-              child: Row(children: [
-                Container(
-                  width: size.width * 0.44,
-                  padding: EdgeInsets.symmetric(
-                      vertical: AppLayout.resScreenHeight(9)),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.horizontal(
-                          left:
-                              Radius.circular(AppLayout.resScreenHeight(10)))),
-                  child: const Text(
-                    'Airline tickets',
-                    style: TextStyle(fontWeight: FontWeight.w500),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                FittedBox(
-                  child: Container(
-                    width: size.width * 0.44,
-                    padding: EdgeInsets.symmetric(
-                        vertical: AppLayout.resScreenHeight(9)),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.horizontal(
-                            right: Radius.circular(
-                                AppLayout.resScreenHeight(10)))),
-                    child: Text(
-                      'Hotels',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.grey.shade500),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ]),
-            ),
-
+            const SwitchButton(buttonTextLeft: 'Airline tickets', buttonTextRight: 'Hotels'),
             // Departure and arrival
             const Gap(25),
 
@@ -127,12 +86,12 @@ class SearchScreen extends StatelessWidget {
                           BorderRadius.circular(AppLayout.resScreenHeight(10))),
                   child: ElevatedButton(
                       onPressed: () {},
-                      child: const Text('Find tickets',
-                          style: TextStyle(fontSize: 16)),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 33, 61, 243),
+                        backgroundColor: Color.fromARGB(255, 27, 52, 215),
                         elevation: 0,
-                      )),
+                      ),
+                      child: const Text('Find tickets',
+                          style: TextStyle(fontSize: 16))),
                 ),
 
                 const Gap(50),
@@ -158,7 +117,7 @@ class SearchScreen extends StatelessWidget {
                 ),
 
                 const Gap(20),
-                UpcomingFlights(),
+                const UpcomingFlights(),
               ],
             )
           ],
